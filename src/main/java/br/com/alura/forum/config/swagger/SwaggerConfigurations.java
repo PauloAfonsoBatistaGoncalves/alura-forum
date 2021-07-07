@@ -17,20 +17,21 @@ import springfox.documentation.spring.web.plugins.Docket;
 public class SwaggerConfigurations {
 
 	@Bean
-	public Docket forumApi() {
-		return new Docket(DocumentationType.SWAGGER_2)
+    public Docket api() {
+        return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.basePackage("br.com.alura.forum"))
                 .paths(PathSelectors.ant("/**"))
                 .build()
-                .ignoredParameterTypes(Usuario.class);
-//                .globalOperationParameters(
-//                        Arrays.asList(
-//                                new ParameterBuilder()
-//                                    .name("Authorization")
-//                                    .description("Header para Token JWT")
-//                                    .modelRef(new ModelRef("string"))
-//                                    .parameterType("header")
-//                                    .required(false)
-	}
+                .ignoredParameterTypes(Usuario.class)
+                .globalOperationParameters(
+                        Arrays.asList(
+                                new ParameterBuilder()
+                                    .name("Authorization")
+                                    .description("Header para Token JWT")
+                                    .modelRef(new ModelRef("string"))
+                                    .parameterType("header")
+                                    .required(false)
+                                    .build()));
+    }
 }
