@@ -7,7 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class AluraForumApplicationTests {
 
-	@Test
+//	@Test
 	void contextLoads() {
 		Assert.assertTrue(true);
 	}
